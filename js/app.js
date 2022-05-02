@@ -14,7 +14,6 @@ const progressContainer = document.querySelector(".progress");
 const progressBar = document.querySelector(".progress-bar");
 const modal = document.querySelector(".modal");
 const modalContent = document.querySelector(".modal-content");
-const volumeSlider = document.querySelector(".volume-slider");
 const currentYear = document.querySelector("#year");
 
 let songIndex = 0;
@@ -128,10 +127,6 @@ function setProgressBar(evt) {
   const duration = audioSource.duration;
 
   audioSource.currentTime = (clickX / width) * duration;
-}
-
-function setVolume() {
-  audioSource.volume = volumeSlider.value / 100;
 }
 
 function likedSong() {
