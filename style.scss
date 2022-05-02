@@ -188,25 +188,6 @@ body {
     }
 }
 
-.slider {
-    @include widthHeight(100%, 10px);
-    @include flexCenter(flex, space-between, center, row);
-    display: none;
-
-    i {
-        color: colorProperty(icons);
-    }
-
-    .volume-slider {
-        @include widthHeight(90%, 5px);
-        accent-color: colorProperty(clicked);
-        outline: none;
-        opacity: 0.7;
-        -webkit-transition: 0.2s;
-        transition: opacity 0.2s;
-    }
-}
-
 .modal {
     @include widthHeight(280px, 60px);
     display: none;
