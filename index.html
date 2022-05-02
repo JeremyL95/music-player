@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="keywords" content="music, song, mp3, music player, anime" />
+    <meta name="author" content="Jeremy Erik Leong" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="shortcut icon" href="assets/images/cd.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <i class="fas fa-angle-down"></i>
+            <span>Playing From Playlist <b>Anime</b> </span>
+            <i class="fas fa-ellipsis-vertical"></i>
+        </div>
+
+        <div class="image">
+            <img src="" alt="image of song album" class="album-image">
+        </div>
+
+        <div class="song-info">
+            <p class="song-name">Soundtrack name</p>
+            <p class="artist-name">Artist name</p>
+            <i class="far fa-heart btn-like"></i>
+        </div>
+
+        <div class="progress">
+            <div class="progress-bar">
+                <span></span>
+            </div>
+
+            <div class="timer">
+                <span class="playtime current-time">0:00</span>
+                <span class="playtime total-duration">0:00</span>
+            </div>
+            <audio id="song" src=""></audio>
+        </div>
+
+        <div class="controls">
+            <i class="fas fa-shuffle btn-shuffle"></i>
+            <i class="fas fa-backward-step btn-previous"></i>
+            <div class="btn-play-pause">
+                <i class="fas fa-play btn-play"></i>
+            </div>
+            <i class="fas fa-forward-step btn-next"></i>
+            <i class="fas fa-repeat btn-loop"></i>
+        </div>
+
+        <div class="dropdown">
+            <div class="slider">
+                <i class="fas fa-volume-low"></i>
+                <input type="range" min="0" max="100" class="volume-slider" onchange="setVolume()">
+            </div>
+        </div>
+
+        <div class="modal">
+            <div>
+                <p class="modal-content"></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>©<span id="year"></span>&nbspJeremy Erik Leong</footer>
+
+    <script src="js/playlist.js"></script>
+    <script src="js/app.js"></script>
+</body>
+
+</html>
