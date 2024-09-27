@@ -173,11 +173,9 @@ btnLoop.addEventListener("click", () => {
   if (!btnLoop.classList.contains("active")) {
     btnLoop.classList.add("active");
     isLooping = true;
-    console.log("currently looping");
   } else {
     btnLoop.classList.remove("active");
     isLooping = false;
-    console.log("stop looping");
   }
 });
 
@@ -185,11 +183,9 @@ btnShuffle.addEventListener("click", () => {
   if (!btnShuffle.classList.contains("active")) {
     btnShuffle.classList.add("active");
     isShuffling = true;
-    console.log("currently shuffling");
   } else {
     btnShuffle.classList.remove("active");
     isShuffling = false;
-    console.log("stop shuffling");
   }
 });
 

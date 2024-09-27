@@ -1,11 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
 $colors: (
-    backgrounds: #2f4f4f,
+    backgrounds: #3f3f3f,
     defaults: #808080,
     texts: #d3d3d3,
     icons: #fff,
-    clicked: #1db954,
+    clicked: #1db954
 );
 
 @function colorProperty($color-name) {
@@ -34,6 +34,7 @@ $colors: (
 body {
     @include widthHeight(100%, 100vh);
     @include flexCenter(flex, center, center, column);
+    background-color: #232323;
 }
 
 .container {
@@ -78,6 +79,7 @@ body {
         img {
             @include widthHeight(100%, 100%);
             object-fit: fill;
+            border-radius: 5px;
         }
     }
 
@@ -92,6 +94,7 @@ body {
         }
 
         .artist-name {
+            font-size: 0.75rem;
             color: colorProperty(defaults);
         }
 
@@ -123,19 +126,18 @@ body {
             border-radius: inherit;
             position: relative;
 
+            &-indicator {
+                position: absolute;
+                @include widthHeight(12px, 12px);
+                border-radius: inherit;
+                background-color: colorProperty(icons);
+                top: 50%;
+                right: -10px;
+                transform: translateY(-50%);
+            }
+
             &:hover {
                 background-color: colorProperty(clicked);
-
-                &::before {
-                    content: " ";
-                    position: absolute;
-                    @include widthHeight(12px, 12px);
-                    background-color: colorProperty(icons);
-                    border-radius: inherit;
-                    top: 50%;
-                    right: 0px;
-                    transform: translateY(-50%);
-                }
             }
         }
 
@@ -145,7 +147,7 @@ body {
             .playtime {
                 color: colorProperty(icons);
                 font-size: 0.75em;
-                padding-top: 0.5em;
+                padding-top: 0.75em;
             }
         }
     }
@@ -159,10 +161,25 @@ body {
             color: colorProperty(defaults);
             font-size: 24px;
             position: relative;
+
+            .dot {
+                display: none;
+            }
         }
 
         .active {
             color: colorProperty(clicked);
+
+            .dot {
+                display: block;
+                @include widthHeight(6px, 6px);
+                border-radius: 50%;
+                background-color: colorProperty(clicked);
+                position: absolute;
+                bottom: -60%;
+                left: 50%;
+                transform: translateX(-50%);
+            }
         }
 
         .btn-previous,
@@ -176,6 +193,10 @@ body {
             @include flexCenter(flex, center, center, row);
             background-color: colorProperty(icons);
             border-radius: 50%;
+
+            &:hover {
+                cursor: pointer;
+            }
 
             i {
                 color: #000;
@@ -206,4 +227,5 @@ body {
 footer {
     padding-top: 1em;
     font-size: 0.75em;
+    color: #fff;
 }
