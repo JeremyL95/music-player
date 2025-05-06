@@ -24,11 +24,16 @@ $colors: (
     flex-direction: $direction;
 }
 
+:root {
+    --icon-size: 1.25rem;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: "montserrat", sans-serif;
+    -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -38,7 +43,7 @@ body {
 }
 
 .container {
-    @include widthHeight(320px, 580px);
+    @include widthHeight(320px, 640px);
     position: relative;
     padding: 2em 1em;
     background-color: colorProperty(backgrounds);
@@ -70,7 +75,7 @@ body {
     }
 
     .image {
-        @include widthHeight(100%, 250px);
+        @include widthHeight(100%, 300px);
         margin: 2em auto;
 
         img {
@@ -99,8 +104,8 @@ body {
         }
 
         .btn-like {
-            font-size: 20px;
-            color: colorProperty(texts);
+            font-size: var(--icon-size);
+            color: colorProperty(defaults);
             position: absolute;
             top: 30%;
             left: 90%;
@@ -159,7 +164,7 @@ body {
         .btn-shuffle,
         .btn-loop {
             color: colorProperty(defaults);
-            font-size: 20px;
+            font-size: var(--icon-size);
             position: relative;
 
             .dot {
@@ -185,7 +190,7 @@ body {
         .btn-previous,
         .btn-next {
             color: colorProperty(icons);
-            font-size: 20px;
+            font-size: var(--icon-size);
         }
 
         .btn-play-pause {
@@ -203,6 +208,25 @@ body {
             .btn-play {
                 font-size: 2rem;
             }
+        }
+    }
+
+    .volume {
+        @include flexCenter(flex, space-between, center, row);
+        margin-top: 1rem;
+        gap: 1rem;
+
+        .volume-bar {
+            @include widthHeight(100%, 3px);
+            accent-color: colorProperty(icons);
+            border-radius: 50px;
+            cursor: pointer;
+        }
+
+        .fa-volume-off,
+        .fa-volume-high {
+            font-size: 10px;
+            color: colorProperty(icons);
         }
     }
 }
@@ -223,8 +247,6 @@ body {
 }
 
 footer {
-    position: absolute;
-    bottom: 5px;
     padding-block: 1em;
     font-size: 0.75em;
     color: colorProperty(icons);

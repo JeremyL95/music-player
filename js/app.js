@@ -12,6 +12,7 @@ const btnShuffle = document.querySelector(".btn-shuffle");
 const btnLike = document.querySelector(".btn-like");
 const progressContainer = document.querySelector(".progress");
 const progressBar = document.querySelector(".progress-bar");
+const volumeBar = document.querySelector(".volume-bar");
 const modal = document.querySelector(".modal");
 const modalContent = document.querySelector(".modal-content");
 const currentYear = document.querySelector("#year");
@@ -20,6 +21,7 @@ let songIndex = 0;
 let hasLiked = false;
 let isLooping = false;
 let isShuffling = false;
+let currentVolume = volumeBar.value;
 
 window.addEventListener("load", () => {
   loadSong(songIndex);
@@ -37,6 +39,7 @@ function playSong() {
   btnPlayPause.querySelector("i.fas").classList.remove("fa-play");
   btnPlayPause.querySelector("i.fas").classList.add("fa-pause");
   audioSource.play();
+  tuneVolume();
 }
 
 function pauseSong() {
@@ -129,17 +132,18 @@ function setProgressBar(evt) {
   audioSource.currentTime = (clickX / width) * duration;
 }
 
+function tuneVolume() {
+  audioSource.volume = volumeBar.value;
+  currentVolume = volumeBar.value;
+}
+
 function likedSong() {
-  btnLike.classList.add("fas");
-  btnLike.classList.remove("far");
   btnLike.classList.add("active");
   hasLiked = true;
   modalPopUp();
 }
 
 function unLikedSong() {
-  btnLike.classList.add("far");
-  btnLike.classList.remove("fas");
   btnLike.classList.remove("active");
   hasLiked = false;
   modalPopUp();
@@ -198,6 +202,8 @@ btnLike.addEventListener("click", () => {
   const hasLiked = !btnLike.classList.contains("active");
   hasLiked ? likedSong() : unLikedSong();
 });
+
+volumeBar.addEventListener('input', tuneVolume);
 
 //current year
 currentYear.innerText = new Date().getFullYear();
