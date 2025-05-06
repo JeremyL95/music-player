@@ -59,4 +59,34 @@ let musicPlayer = [
     img: "photo-10",
     src: "song-10",
   },
+  {
+    songName: "Avid",
+    artistName: "Hiroyuki Sawano",
+    img: "photo-11",
+    src: "song-11",
+  },
+  {
+    songName: "SLASH!!",
+    artistName: "Ohta Michihiko",
+    img: "photo-12",
+    src: "song-12",
+  },
+  {
+    songName: "Hello Mr. My Yesterday",
+    artistName: "Hundred Percent Free",
+    img: "photo-13",
+    src: "song-13",
+  },
+  {
+    songName: "Little Planets",
+    artistName: "Aiko Kayo",
+    img: "photo-14",
+    src: "song-14",
+  },
+  {
+    songName: "Styx Helix",
+    artistName: "Myth & Roid",
+    img: "photo-15",
+    src: "song-15",
+  }
 ];
