@@ -8,8 +8,22 @@ $colors: (
     clicked: #1db954
 );
 
+// 768px , 992px, 1200px
+$breakpoints: (
+    "medium": 48em,
+    "large": 62em,
+    "xlarge": 75em,
+    "xxlarge": 87.5em
+);
+
 @function colorProperty($color-name) {
     @return map-get($colors, $color-name);
+}
+
+@mixin breakpoint($size) {
+    @media (min-width: map-get($breakpoints, $size)) {
+        @content;
+    }
 }
 
 @mixin widthHeight($width, $height) {
@@ -37,13 +51,19 @@ $colors: (
 }
 
 body {
-    @include widthHeight(100%, 100dvh);
+    @include widthHeight(100%, auto);
     @include flexCenter(flex, center, center, column);
     background-color: #232323;
+    padding: 2rem 1rem;
+
+    @include breakpoint(large) {
+        height: 100dvh;
+    }
 }
 
 .container {
-    @include widthHeight(320px, 640px);
+    width: min(100%, 320px);
+    height: auto;
     position: relative;
     padding: 2em 1em;
     background-color: colorProperty(backgrounds);
